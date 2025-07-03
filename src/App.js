@@ -52,7 +52,7 @@ console.log(mode);
   return (
 // App.js
 <>
-<Router>
+<Router basename="/TextUtilities">
   <Navbar title="Textutills" mode={mode} myfunction={myFunction}/>
   <Alert alert={malert} />
   <Routes>
