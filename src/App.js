@@ -5,12 +5,12 @@ import AboutPage from './components/AboutPage';
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import Alert from './components/Alert';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-//   Link
-//  } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+ } from 'react-router-dom';
 
 
 function App() {
@@ -52,20 +52,20 @@ console.log(mode);
   return (
 // App.js
 <>
-{/* <Router basename="/TextUtilities"> */}
+<Router>
   <Navbar title="Textutills" mode={mode} myfunction={myFunction}/>
   <Alert alert={malert} />
-  {/* <Routes> */}
-    {/* <Route exect path="/" element={ */}
+  <Routes>
+    <Route exect path="/" element={
       <div className='container'>
         <Textform heading="Enter your Text here" mode={mode} showAlert={showAlert}/>
       </div>
-    {/* } /> */}
-    {/* <Route exect path="/about" element={ */}
+    } />
+    <Route exect path="/about" element={
     <AboutPage mode={mode}/>
-    {/* // } /> */}
-  {/* </Routes> */}
-{/* </Router> */}
+     } />
+  </Routes>
+</Router>
 
 
 
