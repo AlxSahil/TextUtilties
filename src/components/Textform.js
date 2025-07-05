@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 
 export default function Textform(props) {
-const[text, setText]=useState("Enter the text here");
+const[text, setText]=useState("");
 
 
 
@@ -133,15 +133,16 @@ const fclickfunction = ()=> {
    <div className='mb-3 my-3'>
     <label for="Mybox" className={`form-label text-${props.mode==="dark"? "white": "black"}`} ><h2>{props.heading}</h2></label>
     <textarea className={`form-control bg-${props.mode} text-${props.mode==="dark"? "white": "black"}`} value={text} onChange={changefunction} id='Mybox' rows="9"> </textarea>
-    <p className={`text-${props.mode==="dark"? "white": "black"}`}>Summary: charracter={text.length}, words={text.split(" ").length}, It will take {0.008*text.split(" ").length} minutes to read</p>
+    <p className={`text-${props.mode==="dark"? "white": "black"}`}>Summary: charracter={text.length}, words={text.trim() === "" ? 0 : text.trim().split(/\s+/).length}, It will take {0.008*(text.trim() === "" ? 0 : text.trim().split(/\s+/).length)} minutes to read</p>
 
-    <button className={`btn btn-outline-${props.mode==="dark"? "light": "dark"} my-1 mx-1`} onClick={uclickfunction}>Convert to Uppercase</button>
-    <button className={`btn btn-outline-${props.mode==="dark"? "light": "dark"} my-1 mx-1`}  onClick={lclickfunction}>Convert to Lowercase</button>
-    <button className={`btn btn-outline-${props.mode==="dark"? "light": "dark"} my-1 mx-1`}  onClick={fclickfunction}>Format the Text</button>
-    <button className={`btn btn-outline-${props.mode==="dark"? "light": "dark"} my-1 mx-1`} onClick={cclickfunction}>Copy Text</button>
-    <button className={`btn btn-outline-${props.mode==="dark"? "light": "dark"} my-1 mx-1`}  onClick={ccclickfunction}>Clear Text</button>
+    <button disabled= {text.length===0 || text.trim() === ""} className={`btn btn-outline-${props.mode==="dark"? "light": "dark"} my-1 mx-1`} onClick={uclickfunction}>Convert to Uppercase</button>
+    <button disabled= {text.length===0 || text.trim() === ""} className={`btn btn-outline-${props.mode==="dark"? "light": "dark"} my-1 mx-1`}  onClick={lclickfunction}>Convert to Lowercase</button>
+    <button disabled= {text.length===0 || text.trim() === ""} className={`btn btn-outline-${props.mode==="dark"? "light": "dark"} my-1 mx-1`}  onClick={fclickfunction}>Format the Text</button>
+    <button disabled= {text.length===0 || text.trim() === ""} className={`btn btn-outline-${props.mode==="dark"? "light": "dark"} my-1 mx-1`} onClick={cclickfunction}>Copy Text</button>
+    <button disabled= {text.length===0 || text.trim() === ""} className={`btn btn-outline-${props.mode==="dark"? "light": "dark"} my-1 mx-1`}  onClick={ccclickfunction}>Clear Text</button>
    </div>
    
    </>
   )
 }
+
